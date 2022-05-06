@@ -315,8 +315,14 @@ StringBuffer:
 StringBuilder:
 线程不安全，速度快。单线程时使用此类。
 
+对象比较器：
+自定义对象实现比较排序，使用Comparable接口。
+Comparator接口
 
+对象克隆
+Cloneable接口
 
+Lambda表达式：
 
 
 
