@@ -4,11 +4,43 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("结果是" + Solution.strStr("mississippi", "issipi"));
+        MyThread mt = new MyThread();
+        mt.start();
+        MyRunnable mr = new MyRunnable();
+        Thread t2 = new Thread(mr);
+        t2.start();
     }
 }
 
-class Solution {
+class MyThread extends Thread{
+    @Override
+    public void run() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println(Thread.currentThread().getName()+" "+i);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+class MyRunnable implements Runnable{
+    @Override
+    public void run() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println(Thread.currentThread().getName()+" "+i);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+/**class Solution {
     public static int strStr(String haystack, String needle) {
         int flag = 0;
         if (needle.equals("")) {
@@ -33,3 +65,4 @@ class Solution {
         return -1;
     }
 }
+*/
