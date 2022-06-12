@@ -6,9 +6,33 @@ public class ProducterCustomerDemo {
     }
 }
 
-class Food{
+class Food {
     private String name;
     private String desc;
+
+    /*
+     * 生产产品
+     * */
+    public void set(String name, String desc) {
+        this.setName(name);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        this.setDesc(desc);
+    }
+
+    /*
+     * 消费产品*/
+    public void get() {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(this.getName() + "->" + this.getDesc());
+    }
 
     public String getName() {
         return name;
@@ -40,5 +64,16 @@ class Food{
     }
 
     public Food() {
+    }
+}
+
+class Producter implements Runnable{
+    private Food food;
+    public Producter(Food food){
+        this.food = food;
+    }
+    @Override
+    public void run() {
+
     }
 }
